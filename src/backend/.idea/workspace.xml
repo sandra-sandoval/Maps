@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c7a1662b-2bdb-40c6-ab88-6b8e37c92de4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/target/classes/server/FilteringHandler$FilteringFailureResponse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/server/FilteringHandler$FilteringSuccessResponse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../tests/load.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../tests/mocked-server.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../tests/mode.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../tests/search.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../tests/view.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/FilteringHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/FilteringHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/LoadCsvHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/LoadCsvHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/RedliningHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/RedliningHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/server/TestFilteringHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/server/TestFilteringHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/server/FilteringHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/FilteringHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/server/LoadCsvHandler$LoadFailureResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/LoadCsvHandler$LoadFailureResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/server/LoadCsvHandler$LoadSuccessResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/LoadCsvHandler$LoadSuccessResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/server/LoadCsvHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/LoadCsvHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/server/RedliningHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/RedliningHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/server/TestFilteringHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/server/TestFilteringHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/server/TestRedliningHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/server/TestRedliningHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/components/map/overlays.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/components/map/overlays.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/../.." value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2X26dy2QXUo79d50NONTPmozd11" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/sandrasandoval/Desktop/cs32/maps-jzdzilow-spsandov/src/backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;shared-indexes&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="JUnit.TestFilteringHandler">
+    <configuration name="TestFilteringHandler" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="s0" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="server" />
+      <option name="MAIN_CLASS_NAME" value="server.TestFilteringHandler" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestFilteringHandler.testNoResults" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="s0" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="server" />
+      <option name="MAIN_CLASS_NAME" value="server.TestFilteringHandler" />
+      <option name="METHOD_NAME" value="testNoResults" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestRedliningHandler.testFuzzingBounds" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="s0" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="server" />
+      <option name="MAIN_CLASS_NAME" value="server.TestRedliningHandler" />
+      <option name="METHOD_NAME" value="testFuzzingBounds" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestRedliningHandler.testInvalidFuzzing" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="s0" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="server" />
+      <option name="MAIN_CLASS_NAME" value="server.TestRedliningHandler" />
+      <option name="METHOD_NAME" value="testInvalidFuzzing" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestRedliningHandler.testInvalidParameterFuzzing" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="s0" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="server" />
+      <option name="MAIN_CLASS_NAME" value="server.TestRedliningHandler" />
+      <option name="METHOD_NAME" value="testInvalidParameterFuzzing" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.TestFilteringHandler" />
+        <item itemvalue="JUnit.TestRedliningHandler.testInvalidParameterFuzzing" />
+        <item itemvalue="JUnit.TestRedliningHandler.testInvalidFuzzing" />
+        <item itemvalue="JUnit.TestRedliningHandler.testFuzzingBounds" />
+        <item itemvalue="JUnit.TestFilteringHandler.testNoResults" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c7a1662b-2bdb-40c6-ab88-6b8e37c92de4" name="Changes" comment="" />
+      <created>1697814933965</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1697814933965</updated>
+      <workItem from="1697814935151" duration="2085000" />
+      <workItem from="1699247685835" duration="10000" />
+      <workItem from="1699379205103" duration="8515000" />
+      <workItem from="1699482785469" duration="2419000" />
+      <workItem from="1699660429081" duration="245000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/server/TestRedliningHandler.java</url>
+          <line>99</line>
+          <properties class="server.TestRedliningHandler" method="testInvalidNumberofParameters">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/server/TestRedliningHandler.java</url>
+          <line>143</line>
+          <properties class="server.TestRedliningHandler" method="testFuzzingBounds">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/server/TestRedliningHandler.java</url>
+          <line>175</line>
+          <properties class="server.TestRedliningHandler" method="testInvalidParameterFuzzing">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

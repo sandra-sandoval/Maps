@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CensusSource.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">s0</a> &gt; <a href="index.source.html" class="el_package">sources</a> &gt; <span class="el_source">CensusSource.java</span></div><h1>CensusSource.java</h1><pre class="source lang-java linenums"><span class="nc" id="L1">package edu.brown.cs.student.main.sources;</span>
+
+/**
+ * This is an interface that represents a census source object, which can be implemented by a mock
+ * data source or a real data source that queries the census API.
+ *
+ * @author sarahridley juliazdzilowska
+ * @version 1.0
+ */
+public interface CensusSource {
+
+  /**
+   * This method returns the broadband access in the given state and county Strings.
+   *
+   * @param state the String representing the state to get broadband access data about
+   * @param county the String representing the county to get broadband access about
+   * @return a CensusData object that contains a Double representing broadband access in the state /
+   *     county combination passed
+   * @throws DataSourceException if the census source fails to find the broadband access data
+   */
+  CensusData getBroadbandAccess(String state, String county) throws DataSourceException;
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
