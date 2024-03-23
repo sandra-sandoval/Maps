@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AcsCensusSource.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">s0</a> &gt; <a href="index.source.html" class="el_package">sources</a> &gt; <span class="el_source">AcsCensusSource.java</span></div><h1>AcsCensusSource.java</h1><pre class="source lang-java linenums"><span class="nc" id="L1">package edu.brown.cs.student.main.sources;</span>
+
+import com.squareup.moshi.JsonAdapter;
+import com.squareup.moshi.Moshi;
+import com.squareup.moshi.Types;
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.HashMap;
+import java.util.List;
+import okio.Buffer;
+
+/**
+ * The AcsCensusSource class implements the CensusSource interface and overrides its
+ * getBroadbandAccess method. An object of this class is constructed with no arguments, and when the
+ * getBroadbandAccess method is called, an object of this class makes an API call to the census API
+ * to find the broadband access level of the given state and county, and returns this level wrapped
+ * in a CensusData object. If the broadband access level cannot be found for some reason, this
+ * method (or a method that it calls) throws a DataSourceException.
+ *
+ * @author sarahridley juliazdzilowska
+ * @version 1.0
+ */
+public class AcsCensusSource implements CensusSource {
+  private final HashMap&lt;String, String&gt; stateIds;
+
+  /** The constructor for the AcsCensusSource class, sets the stateIds field to an empty HashMap. */
+  public AcsCensusSource() {
+    stateIds = new HashMap&lt;&gt;();
+  }
+
+  /**
+   * This method creates a http connection for the caller methods to connect to the ACS API.
+   *
+   * @param requestURL the URL to make an API request to
+   * @return the Http connection url
+   * @throws DataSourceException if the connection fails
+   * @throws IOException if an I/O exception occurs
+   */
+<span class="nc" id="L43">  private static HttpURLConnection connect(URL requestURL) throws DataSourceException, IOException {</span>
+    URLConnection urlConnection = requestURL.openConnection();
+    if (!(urlConnection instanceof HttpURLConnection)) {
+      throw new DataSourceException(&quot;unexpected: result of connection wasn't HTTP&quot;);
+    }
+    HttpURLConnection clientConnection = (HttpURLConnection) urlConnection;
+    clientConnection.connect();
+    if (clientConnection.getResponseCode() != 200) {
+      throw new DataSourceException(
+          &quot;unexpected: API connection not success status &quot; + clientConnection.getResponseMessage());
+    }
+    return clientConnection;
+  }
+
+  /**
+   * This method returns the state code associated with the given String state. The first time this
+   * method is called while the server is running, this method stores all state codes in the
+   * stateIds field, and references that HashMap on future calls to this method.
+   *
+   * @param state the String representing the state to find the ID for
+   * @return the String representing the ID of the given state
+   * @throws DataSourceException if the state is not found in the ACS data
+   */
+<span class="nc" id="L66">  public String getStateCode(String state) throws DataSourceException {</span>
+    try {
+      if (stateIds.isEmpty()) {
+        URL requestURL =
+            new URL(&quot;https&quot;, &quot;api.census.gov&quot;, &quot;/data/2010/dec/sf1?get=NAME&amp;for=state:*&quot;);
+        HttpURLConnection clientConnection = connect(requestURL);
+        Moshi moshi = new Moshi.Builder().build();
+        Type listOfListOfString = Types.newParameterizedType(List.class, List.class, String.class);
+        JsonAdapter&lt;List&lt;List&lt;String&gt;&gt;&gt; adapter = moshi.adapter(listOfListOfString);
+        List&lt;List&lt;String&gt;&gt; data =
+            adapter.fromJson(new Buffer().readFrom(clientConnection.getInputStream()));
+        for (List&lt;String&gt; row : data) {
+          stateIds.put(row.get(0), row.get(1));
+        }
+      }
+      String stateCode = stateIds.get(state);
+      if (stateCode == null) {
+        throw new DataSourceException(&quot;State &quot; + state + &quot; is not a valid state name.&quot;);
+      }
+      return stateCode;
+    } catch (MalformedURLException e) {
+      throw new DataSourceException(&quot;Malformed URL: Connection failed.&quot;);
+    } catch (IOException e) {
+      throw new DataSourceException(e.getMessage());
+    }
+  }
+
+  /**
+   * This method returns the county code of the given county in the given state by calling the
+   * census API.
+   *
+   * @param state the String representing the state where the county is in
+   * @param stateCode the String representing the state code of the state
+   * @param county the String representing the county name
+   * @return a String representing the county code of the given county in the given state
+   * @throws DataSourceException if the given county is not found in the state
+   */
+<span class="nc" id="L103">  public String getCountyCode(String state, String stateCode, String county)</span>
+      throws DataSourceException {
+    try {
+      String fullCounty = county + &quot; County, &quot; + state;
+      URL requestURL =
+          new URL(
+              &quot;https&quot;,
+              &quot;api.census.gov&quot;,
+              &quot;/data/2010/dec/sf1?get=NAME&amp;for=county:*&amp;in=state:&quot; + stateCode);
+      HttpURLConnection clientConnection = connect(requestURL);
+      Moshi moshi = new Moshi.Builder().build();
+      Type listOfListOfString = Types.newParameterizedType(List.class, List.class, String.class);
+      JsonAdapter&lt;List&lt;List&lt;String&gt;&gt;&gt; adapter = moshi.adapter(listOfListOfString);
+      List&lt;List&lt;String&gt;&gt; data =
+          adapter.fromJson(new Buffer().readFrom(clientConnection.getInputStream()));
+      for (List&lt;String&gt; row : data) {
+        if (row.get(0).equals(fullCounty)) {
+          return row.get(2);
+        }
+      }
+      throw new DataSourceException(&quot;County &quot; + county + &quot; not found in state &quot; + state + &quot;.&quot;);
+    } catch (IOException e) {
+      throw new DataSourceException(e.getMessage());
+    }
+  }
+
+  /**
+   * This method finds the broadband access level of the given state and county names. The
+   * intermediate steps include finding the state's code and the county's code to use in a final
+   * query to the census API. This broadband access level is returned in a CensusData object as the
+   * data field. If the state / county combination is not found, throws a DataSourceException.
+   *
+   * @param state the String representing the state of the county for broadband level to be found
+   * @param county the String representing the county for broadband level to be found
+   * @return a CensusData object wrapping a Double representing broadband access level in the given
+   *     state / county combination
+   * @throws DataSourceException if the state / county combination is not found in census data
+   */
+  @Override
+<span class="nc" id="L142">  public CensusData getBroadbandAccess(String state, String county) throws DataSourceException {</span>
+    String stateCode = getStateCode(state);
+    String countyCode = getCountyCode(state, stateCode, county);
+    try {
+      URL requestURL =
+          new URL(
+              &quot;https&quot;,
+              &quot;api.census.gov&quot;,
+              &quot;/data/2021/acs/acs1/subject/variables?get=NAME,S2802_C03_022E&amp;for=county:&quot;
+                  + countyCode
+                  + &quot;&amp;in=state:&quot;
+                  + stateCode);
+      HttpURLConnection clientConnection = connect(requestURL);
+      Moshi moshi = new Moshi.Builder().build();
+      Type listOfListOfString = Types.newParameterizedType(List.class, List.class, String.class);
+      JsonAdapter&lt;List&lt;List&lt;String&gt;&gt;&gt; adapter = moshi.adapter(listOfListOfString);
+      List&lt;List&lt;String&gt;&gt; data =
+          adapter.fromJson(new Buffer().readFrom(clientConnection.getInputStream()));
+      String percent = data.get(1).get(1);
+      Double numPercent = Double.parseDouble(percent);
+      return new CensusData(numPercent);
+    } catch (IOException e) {
+      throw new DataSourceException(e.getMessage());
+    }
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
